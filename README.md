@@ -6,6 +6,13 @@
 
 A compact alpha-beta chess engine in Python (standard library only) for the make.fun tiny-chess-01 bounty. It plays the 8-game house gauntlet through the trial env: iterative-deepening alpha-beta search on a node budget, transposition table, quiescence search, and MVV-LVA/killer/history move ordering. Practice trial: 6 wins, 0 draws, 0 losses.
 
+## How it plays
+
+- **Search:** iterative deepening alpha-beta with a 50,000-node budget per move, a transposition table, and quiescence search that answers captures (and all evasions while in check).
+- **Ordering:** transposition-table move first, then captures by MVV-LVA, promotions, and killer/history moves.
+- **Evaluation:** tapered piece-square tables blended by game phase, plus a bishop-pair bonus.
+- **Board:** 0x88 representation with Zobrist hashing and repetition detection.
+
 ## Run it
 
 ```sh
